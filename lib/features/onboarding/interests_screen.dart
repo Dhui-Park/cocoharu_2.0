@@ -1,5 +1,6 @@
 import 'package:cocoharu_second/constants/gaps.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
+import 'package:cocoharu_second/features/onboarding/tutorial_screen.dart';
 import 'package:cocoharu_second/features/onboarding/widgets/interest_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,15 @@ class _InterestsScreenState extends State<InterestsScreen> {
         _showTitle = false;
       });
     }
+  }
+
+  void _onNextTap() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const TutorialScreen(),
+      ),
+    );
   }
 
   @override
@@ -140,7 +150,7 @@ class _InterestsScreenState extends State<InterestsScreen> {
           right: Sizes.size24,
         ),
         child: CupertinoButton(
-          onPressed: () {},
+          onPressed: _onNextTap,
           color: Theme.of(context).primaryColor,
           child: const Text("next"),
         ),
