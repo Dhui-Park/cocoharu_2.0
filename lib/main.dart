@@ -1,4 +1,4 @@
-import 'package:cocoharu_second/features/onboarding/interests_screen.dart';
+import 'package:cocoharu_second/features/main_navigation/main_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
 
@@ -28,7 +28,7 @@ class CocoHaruApp extends StatelessWidget {
               fontWeight: FontWeight.w600,
             )),
       ),
-      home: const InterestsScreen(),
+      home: const MainNavigationScreen(),
     );
   }
 }
