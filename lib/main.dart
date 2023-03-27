@@ -17,6 +17,9 @@ class CocoHaruApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xFFF25F29),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color(0xFFF25F29),
+        ),
         appBarTheme: const AppBarTheme(
             centerTitle: true,
             foregroundColor: Colors.black,
