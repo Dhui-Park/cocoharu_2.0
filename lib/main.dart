@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
 
-import 'features/onboarding/interests_screen.dart';
+import 'features/inbox/activity_screen.dart';
 
 void main() {
   runApp(const CocoHaruApp());
@@ -35,7 +35,7 @@ class CocoHaruApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const InterestsScreen(),
+      home: const ActivityScreen(),
     );
   }
 }
