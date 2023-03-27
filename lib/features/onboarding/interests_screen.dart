@@ -112,11 +112,24 @@ class _InterestsScreenState extends State<InterestsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Gaps.v32,
-                const Text(
-                  "Choose your interests",
-                  style: TextStyle(
-                    fontSize: Sizes.size40,
-                    fontWeight: FontWeight.bold,
+                RichText(
+                  text: TextSpan(
+                    text: "Choose your ",
+                    style: const TextStyle(
+                      fontSize: Sizes.size40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: "interests",
+                        style: TextStyle(
+                          fontSize: Sizes.size40,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Gaps.v20,

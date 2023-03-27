@@ -64,11 +64,24 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gaps.v80,
-                  const Text(
-                    "Watch cute videos!",
-                    style: TextStyle(
-                      fontSize: Sizes.size40,
-                      fontWeight: FontWeight.bold,
+                  RichText(
+                    text: TextSpan(
+                      text: "Watch ",
+                      style: const TextStyle(
+                        fontSize: Sizes.size40,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "cute videos",
+                          style: TextStyle(
+                            fontSize: Sizes.size40,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Gaps.v16,
@@ -85,11 +98,24 @@ class _TutorialScreenState extends State<TutorialScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gaps.v80,
-                  const Text(
-                    "Swipe the videos",
-                    style: TextStyle(
-                      fontSize: Sizes.size40,
-                      fontWeight: FontWeight.bold,
+                  RichText(
+                    text: TextSpan(
+                      text: "Swipe ",
+                      style: TextStyle(
+                        fontSize: Sizes.size40,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      children: const [
+                        TextSpan(
+                          text: "the videos",
+                          style: TextStyle(
+                            fontSize: Sizes.size40,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Gaps.v16,

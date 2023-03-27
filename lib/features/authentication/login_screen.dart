@@ -29,11 +29,24 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Gaps.v80,
-              const Text(
-                "Log in to cocoharu",
-                style: TextStyle(
-                  fontSize: Sizes.size24,
-                  fontWeight: FontWeight.w700,
+              RichText(
+                text: TextSpan(
+                  text: "log in for ",
+                  style: const TextStyle(
+                    fontSize: Sizes.size24,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "cocoharu",
+                      style: TextStyle(
+                        fontSize: Sizes.size24,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Gaps.v20,

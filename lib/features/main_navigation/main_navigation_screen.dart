@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../discover/discover_screen.dart';
+import '../inbox/inbox_screen.dart';
 import '../videos/video_timeline_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 3;
 
   void _onTap(int index) {
     setState(() {
@@ -54,7 +55,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 3,
-            child: Container(),
+            child: const InboxScreen(),
           ),
           Offstage(
             offstage: _selectedIndex != 4,

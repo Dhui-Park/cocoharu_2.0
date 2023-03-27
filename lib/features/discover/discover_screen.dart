@@ -21,9 +21,30 @@ class DiscoverScreen extends StatefulWidget {
   State<DiscoverScreen> createState() => _DiscoverScreenState();
 }
 
-class _DiscoverScreenState extends State<DiscoverScreen> {
+class _DiscoverScreenState extends State<DiscoverScreen>
+    with SingleTickerProviderStateMixin {
   final TextEditingController _textEditingController =
-      TextEditingController(text: "Initial Text");
+      TextEditingController(text: "Search for...");
+
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _tabController = TabController(
+      length: tabs.length,
+      vsync: this,
+    );
+
+    _tabController.addListener(() {
+      if (!_tabController.indexIsChanging) {
+        setState(() {
+          _onStopSearch();
+        });
+      }
+    });
+  }
 
   void _onSearchChanged(String value) {
     print("Searching for $value");
@@ -33,9 +54,14 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     print("Submitted $value");
   }
 
+  void _onStopSearch() {
+    FocusScope.of(context).unfocus();
+  }
+
   @override
   void dispose() {
     _textEditingController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -53,6 +79,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             onSubmitted: _onSearchSubmitted,
           ),
           bottom: TabBar(
+            controller: _tabController,
             splashFactory: NoSplash.splashFactory,
             padding: const EdgeInsets.symmetric(
               horizontal: Sizes.size16,
@@ -74,6 +101,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
           ),
         ),
         body: TabBarView(
+          controller: _tabController,
           children: [
             GridView.builder(
               keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
