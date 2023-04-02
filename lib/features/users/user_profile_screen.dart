@@ -1,4 +1,5 @@
 import 'package:cocoharu_second/constants/gaps.dart';
+import 'package:cocoharu_second/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -18,6 +19,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
           snap: true,
           floating: true,
           stretch: true,
+          pinned: true,
           backgroundColor: Theme.of(context).primaryColor,
           collapsedHeight: 80,
           expandedHeight: 200,
@@ -52,7 +54,25 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
               ),
             ),
-            itemExtent: 100)
+            itemExtent: 100),
+        SliverGrid(
+          delegate: SliverChildBuilderDelegate(
+            childCount: 50,
+            (context, index) => Container(
+              color: Colors.blue[100 * (index % 9)],
+              child: Align(
+                alignment: Alignment.center,
+                child: Text("Item $index"),
+              ),
+            ),
+          ),
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 100,
+            mainAxisSpacing: Sizes.size20,
+            crossAxisSpacing: Sizes.size20,
+            childAspectRatio: 1,
+          ),
+        ),
       ],
     );
   }
