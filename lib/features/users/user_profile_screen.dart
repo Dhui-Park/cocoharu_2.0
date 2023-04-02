@@ -15,15 +15,17 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       physics: const BouncingScrollPhysics(),
       slivers: [
         SliverAppBar(
+          snap: true,
           floating: true,
           stretch: true,
-          backgroundColor: Colors.teal,
+          backgroundColor: Theme.of(context).primaryColor,
           collapsedHeight: 80,
           expandedHeight: 200,
           flexibleSpace: FlexibleSpaceBar(
             stretchModes: const [
               StretchMode.blurBackground,
               StretchMode.zoomBackground,
+              StretchMode.fadeTitle,
             ],
             background: Image.asset(
               "assets/images/placeholder.jpg",
@@ -41,8 +43,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
         SliverFixedExtentList(
             delegate: SliverChildBuilderDelegate(
+              childCount: 50,
               (context, index) => Container(
-                child: Text("Item $index"),
+                color: Colors.amber[100 * (index % 9)],
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text("Item $index"),
+                ),
               ),
             ),
             itemExtent: 100)
