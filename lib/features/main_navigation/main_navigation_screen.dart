@@ -2,6 +2,7 @@ import 'package:cocoharu_second/constants/gaps.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
 import 'package:cocoharu_second/features/main_navigation/widgets/nav_tab.dart';
 import 'package:cocoharu_second/features/main_navigation/widgets/post_video_button.dart';
+import 'package:cocoharu_second/features/users/user_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,7 +18,7 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 4;
 
   void _onTap(int index) {
     setState(() {
@@ -59,7 +60,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           ),
           Offstage(
             offstage: _selectedIndex != 4,
-            child: Container(),
+            child: const UserProfileScreen(),
           ),
         ],
       ),
