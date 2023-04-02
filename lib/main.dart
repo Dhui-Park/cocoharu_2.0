@@ -1,7 +1,6 @@
+import 'package:cocoharu_second/features/main_navigation/main_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
-
-import 'features/inbox/activity_screen.dart';
 
 void main() {
   runApp(const CocoHaruApp());
@@ -35,7 +34,7 @@ class CocoHaruApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const ActivityScreen(),
+      home: const MainNavigationScreen(),
     );
   }
 }
