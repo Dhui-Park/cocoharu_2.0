@@ -49,7 +49,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     const CircleAvatar(
                       radius: 50,
                       foregroundImage: NetworkImage(
-                          "https://i.namu.wiki/i/nrqwqHPuTTpLUS2sBqST3SPsmwUVgAo0DbFfy1P68lLIibjiW96BIcYygottc5-WJH4TjrH8bFlvMAkHwPfKNBpCJbFxutmAzAvihMOQ3XToIiMmJ3VrcG3TmGT0FtGmXWth7CwBZH8UX5CBoBukPw.webp"),
+                          "https://i2-prod.mirror.co.uk/incoming/article29492045.ece/ALTERNATES/s1200c/0_Erik-ten-Hag-45.jpg"),
                       child: Text("Danda"),
                     ),
                     Gaps.v20,
@@ -235,7 +235,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             fit: BoxFit.cover,
                             placeholder: "assets/images/placeholder.jpg",
                             image:
-                                "https://talkimg.imbc.com/TVianUpload/tvian/TViews/image/2022/09/18/1e586277-48ba-4e8a-9b98-d8cdbe075d86.jpg"),
+                                "https://i.guim.co.uk/img/media/7947a424a20ad696d5567b6c8b6c0e3c73cd7c3f/0_247_5067_3040/master/5067.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=c945e829e5655b8084ad42ec6ab9c545"),
                       ),
                     ),
                   ],

@@ -1,8 +1,14 @@
 import 'package:cocoharu_second/features/main_navigation/main_navigation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
+import 'package:flutter/services.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp],
+  );
   runApp(const CocoHaruApp());
 }
 
@@ -13,6 +19,7 @@ class CocoHaruApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'cocoharu',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,

@@ -27,85 +27,113 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
-          child: Column(
-            children: [
-              Gaps.v80,
-              RichText(
-                text: TextSpan(
-                  text: "sign up for ",
-                  style: const TextStyle(
-                    fontSize: Sizes.size24,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "cocoharu",
-                      style: TextStyle(
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        print(orientation);
+        return Scaffold(
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
+              child: Column(
+                children: [
+                  Gaps.v60,
+                  RichText(
+                    text: TextSpan(
+                      text: "sign up for ",
+                      style: const TextStyle(
                         fontSize: Sizes.size24,
                         fontWeight: FontWeight.w700,
-                        color: Theme.of(context).primaryColor,
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "cocoharu",
+                          style: TextStyle(
+                            fontSize: Sizes.size24,
+                            fontWeight: FontWeight.w700,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Gaps.v20,
+                  const Text(
+                    "Create a profile, follow other accounts, make your own videos, and more.",
+                    style: TextStyle(
+                      fontSize: Sizes.size16,
+                      color: Colors.black45,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Gaps.v40,
+                  if (orientation == Orientation.portrait) ...[
+                    GestureDetector(
+                      onTap: () => _onUsernameTap(context),
+                      child: const AuthButton(
+                        icon: FaIcon(FontAwesomeIcons.user),
+                        text: "Use email & password",
                       ),
                     ),
+                    Gaps.v16,
+                    const AuthButton(
+                      icon: FaIcon(FontAwesomeIcons.apple),
+                      text: "Continue with Apple",
+                    ),
                   ],
-                ),
+                  if (orientation == Orientation.landscape)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => _onUsernameTap(context),
+                            child: const AuthButton(
+                              icon: FaIcon(FontAwesomeIcons.user),
+                              text: "Use email & password",
+                            ),
+                          ),
+                        ),
+                        Gaps.h16,
+                        const Expanded(
+                          child: AuthButton(
+                            icon: FaIcon(FontAwesomeIcons.apple),
+                            text: "Continue with Apple",
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
               ),
-              Gaps.v20,
-              const Text(
-                "Create a profile, follow other accounts, make your own videos, and more.",
-                style: TextStyle(
-                  fontSize: Sizes.size16,
-                  color: Colors.black45,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Gaps.v40,
-              GestureDetector(
-                onTap: () => _onUsernameTap(context),
-                child: const AuthButton(
-                  icon: FaIcon(FontAwesomeIcons.user),
-                  text: "Use email & password",
-                ),
-              ),
-              Gaps.v16,
-              const AuthButton(
-                icon: FaIcon(FontAwesomeIcons.apple),
-                text: "Continue with Apple",
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.grey.shade50,
-        elevation: 2,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: Sizes.size32,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text("Already have an account?"),
-              Gaps.h5,
-              GestureDetector(
-                onTap: () => _onLoginTap(context),
-                child: Text(
-                  "Log in",
-                  style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.w600,
+          bottomNavigationBar: BottomAppBar(
+            color: Colors.grey.shade50,
+            elevation: 2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: Sizes.size32,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Already have an account?"),
+                  Gaps.h5,
+                  GestureDetector(
+                    onTap: () => _onLoginTap(context),
+                    child: Text(
+                      "Log in",
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
