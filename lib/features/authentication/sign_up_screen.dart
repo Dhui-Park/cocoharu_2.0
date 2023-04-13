@@ -6,6 +6,8 @@ import 'package:cocoharu_second/features/authentication/widgets/auth_button.dart
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../utils.dart';
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -40,10 +42,11 @@ class SignUpScreen extends StatelessWidget {
                   RichText(
                     text: TextSpan(
                       text: "sign up for ",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: Sizes.size24,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black,
+                        color:
+                            isDarkMode(context) ? Colors.white : Colors.black,
                       ),
                       children: [
                         TextSpan(
@@ -58,13 +61,15 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
                   Gaps.v20,
-                  const Text(
-                    "Create a profile, follow other accounts, make your own videos, and more.",
-                    style: TextStyle(
-                      fontSize: Sizes.size16,
-                      color: Colors.black45,
+                  const Opacity(
+                    opacity: 0.5,
+                    child: Text(
+                      "Create a profile, follow other accounts, make your own videos, and more.",
+                      style: TextStyle(
+                        fontSize: Sizes.size16,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
-                    textAlign: TextAlign.center,
                   ),
                   Gaps.v40,
                   if (orientation == Orientation.portrait) ...[
@@ -107,7 +112,7 @@ class SignUpScreen extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.grey.shade50,
+            color: isDarkMode(context) ? null : Colors.grey.shade50,
             elevation: 2,
             child: Padding(
               padding: const EdgeInsets.symmetric(

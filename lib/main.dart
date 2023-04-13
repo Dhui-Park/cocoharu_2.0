@@ -1,4 +1,4 @@
-import 'package:cocoharu_second/features/main_navigation/main_navigation_screen.dart';
+import 'package:cocoharu_second/features/authentication/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cocoharu_second/constants/sizes.dart';
 import 'package:flutter/services.dart';
@@ -21,8 +21,13 @@ class CocoHaruApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'cocoharu',
+      themeMode: ThemeMode.system,
       theme: ThemeData(
+        brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.white,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.grey.shade50,
+        ),
         primaryColor: const Color(0xFFF25F29),
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: Color(0xFFF25F29),
@@ -41,7 +46,14 @@ class CocoHaruApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MainNavigationScreen(),
+      darkTheme: ThemeData(
+          brightness: Brightness.dark,
+          scaffoldBackgroundColor: Colors.black,
+          primaryColor: const Color(0xFFF25F29),
+          bottomAppBarTheme: const BottomAppBarTheme(
+            color: Colors.black12,
+          )),
+      home: const SignUpScreen(),
     );
   }
 }
